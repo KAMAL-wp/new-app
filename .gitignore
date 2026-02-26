@@ -1,0 +1,6 @@
+credentials.json
+token.json
+downloads/
+static/report.csv
+__pycache__/
+*.pyc
