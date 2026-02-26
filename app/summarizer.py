@@ -1,6 +1,6 @@
 from groq import Groq
 
-client = Groq(api_key="")  # Your actual API key
+client = Groq(api_key="")  #  API key
 
 def list_available_models():
     """Helper function to see all available models"""
@@ -63,4 +63,5 @@ def summarize(text, filename):
         return f"Error: No working model found. Last error: {last_error}"
     
     except Exception as e:
+
         return f"Error in summarization: {e}"
