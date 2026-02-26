@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Summarizer</title>
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        /* Main heading style */
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Button style */
+        .btn {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            background: #45a049;
+        }
+
+        /* Download link style */
+        .download {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        /* Table style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Table header style */
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        /* Table cell style */
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        /* Table row hover effect */
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Loading message style */
+        .loading {
+            text-align: center;
+            color: #666;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📄 Document Summarizer</h1>
+    <p style="text-align:center;">Connect to Google Drive and summarize your documents using AI</p>
+
+    <!-- Button to trigger summarization -->
+    <form method="POST" action="/summarize">
+        <button class="btn" type="submit">▶ Summarize My Drive Documents</button>
+    </form>
+
+    <!-- Show download link and results only if summaries exist -->
+    {% if summaries %}
+
+        <!-- Download CSV report link -->
+        <div class="download">
+            <a href="/static/report.csv" download>⬇ Download CSV Report</a>
+        </div>
+
+        <!-- Table showing all summaries -->
+        <table>
+            <tr>
+                <th>📁 File Name</th>
+                <th>📝 Summary</th>
+            </tr>
+
+            <!-- Loop through each summary and show in table -->
+            {% for item in summaries %}
+            <tr>
+                <td><strong>{{ item.filename }}</strong></td>
+                <td>{{ item.summary }}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+
+    {% endif %}
+
+</body>
+</html>
