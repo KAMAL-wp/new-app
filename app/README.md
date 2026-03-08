@@ -14,8 +14,8 @@ with a downloadable CSV report.
 ## Setup Steps
 
 ### 1. Clone the repository
-git clone <your-github-link>
-cd app
+git clone https://github.com/KAMAL-wp/new-app
+cd new-app/app
 
 ### 2. Install dependencies
 python -m pip install flask google-auth google-auth-oauthlib google-api-python-client PyMuPDF python-docx pdfplumber groq
@@ -24,8 +24,9 @@ python -m pip install flask google-auth google-auth-oauthlib google-api-python-c
 Download OAuth credentials from Google Cloud Console and save as credentials.json
 
 ### 4. Add your API keys
-- Add Groq API key in summarizer.py
-- Add Google Drive Folder ID in app.py
+- Get free Groq API key from https://console.groq.com
+- Add Groq API key in summarizer.py (line 3)
+- Add Google Drive Folder ID in app.py (line 16)
 
 ### 5. Run the app
 python app.py
